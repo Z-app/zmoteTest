@@ -1,21 +1,30 @@
 package se.z_app.stb.api.test;
 
 
+import se.z_app.stb.api.RCProxy;
+import se.z_app.stb.api.STBState;
+import se.z_app.stb.api.STBState.State;
 import android.test.AndroidTestCase;
-import junit.framework.TestCase;
-import se.z_app.stb.api.*;
 
 public class RCProxyTest extends AndroidTestCase {
 	
-	public void testUp(){
-		RCProxy tester = new RCProxy();
-		assertTrue("pup".equals(tester.up()));	
+	private RCProxy tester;	
+	
+	public void setUp() throws Exception {
+		tester = new RCProxy();
+		
 	}
 	
-	public void testUpp(){
-		RCProxy tester = new RCProxy();
-		assertTrue("pupp".equals(tester.up()));	
+	public void testUp(){
+		tester.setState(STBState.State.MENU); 
+		assertTrue(tester.up().equals("pup"));
+		
 	}
+	
+	
+	
+	
+	
 	
 	
 }
