@@ -13,15 +13,32 @@ public class DiscoveryTest extends AndroidTestCase {
 
 	public void tearDown() throws Exception {
 	}
-
-
+	
+	/**
+	 * Tests if the stb result array is empty and if the proxy stb is in the array.
+	 */
+	
 	public void testFind() { 
 		STB [] stbs = tester.find();
 		Log.e("STBTest", "lenght: " + stbs.length);
 		System.out.println("STBTest lenght: " + stbs.length);
 
-		assertTrue(stbs.length>0);
-		assertTrue(tester.find()[0].getIP().equals("130.236.248.226") || tester.find()[1].getIP().equals("130.236.248.226") || tester.find()[2].getIP().equals("130.236.248.226"));
-
-	}
+		assertEquals(4,stbs.length);
+		
+		boolean proxySTBCheck = false;
+		boolean unique = true;
+		for(int i = 0 ; i<stbs.length; i++) {
+			
+			if(stbs[i].getIP().equals("130.236.248.226"))
+				proxySTBCheck = true;
+			
+			for(int j = 0; j < stbs.length ; j++ ) {
+				if (i!=j && stbs[i].getIP().equals(stbs[j].getIP()))
+					unique =false;					
+			}			
+		}
+		assertTrue(unique);
+		assertTrue(proxySTBCheck);
+		Log.e("STBTest", "hej");
+	}		
 }

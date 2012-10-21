@@ -2,15 +2,15 @@ package se.z_app.stb.api.zenterio.test;
 
 import java.util.Iterator;
 
-import android.graphics.Bitmap;
-import android.util.Log;
+import junit.framework.TestCase;
 import se.z_app.stb.Channel;
 import se.z_app.stb.EPG;
 import se.z_app.stb.Program;
 import se.z_app.stb.WebTVItem;
 import se.z_app.stb.WebTVService;
 import se.z_app.stb.api.zenterio.StandardCommand;
-import junit.framework.TestCase;
+import android.graphics.Bitmap;
+import android.util.Log;
 
 public class StandardCommandTest extends TestCase {
 
