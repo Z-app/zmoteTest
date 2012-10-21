@@ -72,7 +72,7 @@ public class StandardCommandTest extends TestCase {
 
 		for(int i = 0; i <3; i++){
 			assertTrue(sevices[i].getName() != null);
-			assertTrue(sevices[i].getiD() != null);
+			assertTrue(sevices[i].getID() != null);
 			assertTrue(sevices[i].getIconURL() != null);
 		}
 
@@ -102,7 +102,7 @@ public class StandardCommandTest extends TestCase {
 	}
 
 	public void testGetChannelImage(){
-		StandardCommand cmd = new StandardCommand("130.236.248.57");
+		StandardCommand cmd = new StandardCommand("130.236.248.226");
 		Channel ch = new Channel();
 		Bitmap icon;
 		ch.setNr(1);
@@ -113,6 +113,31 @@ public class StandardCommandTest extends TestCase {
 		icon = cmd.getChannelIcon(ch);
 		
 		assertTrue(icon != null);
+	}
+	public void testGetWebTVServiceIcon(){
+		StandardCommand cmd = new StandardCommand("130.236.248.226");
+		WebTVService service = new WebTVService();
+		service.setID("youtube");
+		service.setName("Youtube");
+		service.setIconURL("resource:HalfPipe.Icon.Youtube");
+		Bitmap icon;
 
+		icon = cmd.getWebTVServiceIcon(service);
+		
+		assertTrue(icon != null);
+	}
+	
+	public void testGetWebTVItemIcon(){
+		StandardCommand cmd = new StandardCommand("130.236.248.226");
+		WebTVItem item = new WebTVItem();
+		item.setId("youtube:media:lUjDq67nBCA");
+		item.setTitle("LolCatz Compilation");
+		item.setAuthor("");
+		item.setDuration(400);
+		item.setIconURL("http://i.ytimg.com/vi/lUjDq67nBCA/hqdefault.jpg");
+		Bitmap icon;
+		icon = cmd.getWebTVItemIcon(item);
+		
+		assertTrue(icon != null);
 	}
 }
