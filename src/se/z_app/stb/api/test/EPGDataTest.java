@@ -2,6 +2,7 @@ package se.z_app.stb.api.test;
 
 import java.util.Iterator;
 
+import android.graphics.Bitmap;
 import android.util.Log;
 import se.z_app.stb.Channel;
 import se.z_app.stb.EPG;
@@ -22,7 +23,6 @@ public class EPGDataTest extends TestCase {
 
 		STBContainer.instance().setSTB(stb);		
 		epgdata = EPGData.instance();
-		
 		
 	}
 
@@ -77,7 +77,40 @@ public class EPGDataTest extends TestCase {
 	}
 
 	public void testGetChannelIcon() {
-		fail("Not yet implemented");
+		EPG epg = epgdata.getEPG();
+		Channel ch1 = epg.getChannel(5);
+		Channel ch2 = epg.getChannel(3);
+		Bitmap icon1;
+		Bitmap icon2;
+		
+		icon1 = epgdata.getChannelIcon(ch1);
+		icon2 = epgdata.getChannelIcon(ch2);
+		
+		assertTrue(icon1 != null);
+		assertTrue(icon2 != null);
+		assertTrue(!icon1.equals(icon2));
 	}
 
+	public void testAddChannelIcon(){
+		EPG epg = epgdata.getEPG();
+		Channel ch1 = epg.getChannel(5);
+		Channel ch2 = epg.getChannel(3);
+				
+		epgdata.populateWithChannelIcon(ch1);
+		epgdata.populateWithChannelIcon(ch2);
+		
+		assertTrue(ch1.getIcon() != null);
+		assertTrue(ch2.getIcon() != null);
+		assertTrue(!ch1.getIcon().equals(ch2.getIcon()));
+	}
+	
+	public void testAddChannelIcons(){
+		EPG epg = epgdata.getEPG();
+		epgdata.populateWithChannelIcon(epg);
+		Iterator<Channel> channels = epg.iterator();
+		while(channels.hasNext()){
+			assertTrue(channels.next().getIcon() != null);
+		}
+	}
+	
 }
