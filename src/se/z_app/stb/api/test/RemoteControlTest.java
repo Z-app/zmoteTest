@@ -14,7 +14,6 @@ public class RemoteControlTest extends AndroidTestCase {
 
 
 	public void testButton() { 
-		RemoteControl.Button.
 		
 	}
 
