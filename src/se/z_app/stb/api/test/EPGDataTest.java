@@ -78,6 +78,8 @@ public class EPGDataTest extends TestCase {
 
 	/**
 	 * Cannot be tested through unit testing.
+	 * 
+	 * Why not? they work fine / Raz
 	 */
 	public void testGetChannelIcon() {
 		EPG epg = epgdata.getEPG();
