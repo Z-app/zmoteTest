@@ -2,11 +2,17 @@ package se.z_app.stb.test;
 
 import java.util.Date;
 import java.util.Iterator;
+
 import se.z_app.stb.Channel;
 import se.z_app.stb.Program;
 import android.graphics.Bitmap;
 import android.test.AndroidTestCase;
 
+/**
+ * Test class for Channel. Fully implemented.
+ * @author Leonard & co
+ *
+ */
 public class ChannelTest extends AndroidTestCase {
 
 	private Channel channel;
@@ -17,7 +23,7 @@ public class ChannelTest extends AndroidTestCase {
 	private static final String url = "test_url";
 	private static final String name = "test_name";
 	private static final String iconUrl = "test_icon_url";
-	private static final Bitmap icon = null;
+	private static final Bitmap icon = Bitmap.createBitmap(2, 2, Bitmap.Config.ARGB_4444);
 
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -51,7 +57,7 @@ public class ChannelTest extends AndroidTestCase {
 	}
 
 	public void testSetIcon() {
-		Bitmap icon2 = null;
+		Bitmap icon2 = Bitmap.createBitmap(1, 1, Bitmap.Config.ALPHA_8);
 		channel.setIcon(icon2);
 		assertEquals(icon2, channel.getIcon());
 	}
@@ -116,6 +122,7 @@ public class ChannelTest extends AndroidTestCase {
 		assertEquals(sid2, channel.getSid());
 	}
 
+	@SuppressWarnings("deprecation")
 	public void testAddProgram() {
 		int numberOfProgams = 12;
 		Program[] programArray = new Program[numberOfProgams];

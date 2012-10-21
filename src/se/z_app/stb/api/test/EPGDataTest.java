@@ -76,8 +76,10 @@ public class EPGDataTest extends TestCase {
 		assertTrue(epgdata.getCurrentChannel().getUrl() != null);
 	}
 
+	/**
+	 * Cannot be tested through unit testing.
+	 */
 	public void testGetChannelIcon() {
-		fail("Not yet implemented");
+		// Not implemented.
 	}
-
 }
