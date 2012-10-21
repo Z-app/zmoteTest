@@ -1,5 +1,6 @@
 package se.z_app.stb.api.test;
 import se.z_app.stb.api.RemoteControl;
+import se.z_app.stb.api.RemoteControl.Button;
 import android.test.AndroidTestCase;
 
 public class RemoteControlTest extends AndroidTestCase {
@@ -13,8 +14,8 @@ public class RemoteControlTest extends AndroidTestCase {
 	}
 
 
-	public void testButton() { 
-		RemoteControl.Button.
+	public void testSendButton() { 
+		RemoteControl.instance().sendButton(Button.UP);
 		
 	}
 
