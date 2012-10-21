@@ -22,6 +22,7 @@ public class DiscoveryTest extends AndroidTestCase {
 		STB [] stbs = tester.find();
 		Log.e("STBTest", "lenght: " + stbs.length);
 		System.out.println("STBTest lenght: " + stbs.length);
+
 		assertEquals(4,stbs.length);
 		
 		boolean proxySTBCheck = false;
