@@ -76,6 +76,9 @@ public class EPGDataTest extends TestCase {
 		assertTrue(epgdata.getCurrentChannel().getUrl() != null);
 	}
 
+	/**
+	 * Cannot be tested through unit testing.
+	 */
 	public void testGetChannelIcon() {
 		EPG epg = epgdata.getEPG();
 		Channel ch1 = epg.getChannel(5);
@@ -113,4 +116,5 @@ public class EPGDataTest extends TestCase {
 		}
 	}
 	
+
 }
