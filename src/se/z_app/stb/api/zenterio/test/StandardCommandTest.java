@@ -1,12 +1,12 @@
 package se.z_app.stb.api.zenterio.test;
 
-import android.util.Log;
 import se.z_app.stb.Channel;
 import se.z_app.stb.EPG;
 import se.z_app.stb.api.zenterio.StandardCommand;
-import junit.framework.TestCase;
+import android.test.AndroidTestCase;
+import android.util.Log;
 
-public class StandardCommandTest extends TestCase {
+public class StandardCommandTest extends AndroidTestCase {
 	public void testGetCurrentChannel(){
 		StandardCommand cmd = new StandardCommand("130.236.248.226");
 		assertTrue(cmd.getCurrentChannel().getName() != null);
