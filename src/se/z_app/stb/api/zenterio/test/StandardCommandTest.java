@@ -70,7 +70,7 @@ public class StandardCommandTest extends TestCase {
 		
 		for(int i = 0; i <3; i++){
 			assertTrue(sevices[i].getName() != null);
-			assertTrue(sevices[i].getID() != null);
+			assertTrue(sevices[i].getiD() != null);
 			assertTrue(sevices[i].getIconURL() != null);
 		}
 		
