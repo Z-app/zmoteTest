@@ -21,7 +21,7 @@ public class EPGDataTest extends TestCase {
 		super.setUp();
 		STB stb = STBProxy.getProxy();
 
-		STBContainer.instance().setSTB(stb);		
+		STBContainer.instance().setActiveSTB(stb);		
 		epgdata = EPGData.instance();
 		
 	}
