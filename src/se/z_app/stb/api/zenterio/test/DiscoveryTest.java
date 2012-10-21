@@ -19,7 +19,7 @@ public class DiscoveryTest extends AndroidTestCase {
 		STB [] stbs = tester.find();
 		Log.e("STBTest", "lenght: " + stbs.length);
 		System.out.println("STBTest lenght: " + stbs.length);
-		assertTrue(stbs.length!=56);
+		assertTrue(stbs.length>0);
 		assertTrue(tester.find()[0].getIP().equals("130.236.248.226") || tester.find()[1].getIP().equals("130.236.248.226") || tester.find()[2].getIP().equals("130.236.248.226"));
 	}
 }
