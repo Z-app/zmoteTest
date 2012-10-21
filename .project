@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>zmote-test</name>
+	<name>zmoteTest</name>
 	<comment></comment>
 	<projects>
 		<project>zmote</project>
