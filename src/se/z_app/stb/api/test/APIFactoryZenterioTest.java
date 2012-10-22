@@ -1,7 +1,6 @@
 package se.z_app.stb.api.test;
 
 import se.z_app.stb.STB;
-import se.z_app.stb.STBProxy;
 import se.z_app.stb.api.AbstractAPIFactory;
 import se.z_app.stb.api.BiDirectionalCmdInterface;
 import se.z_app.stb.api.DiscoveryInterface;
@@ -11,6 +10,7 @@ import se.z_app.stb.api.zenterio.Discovery;
 import se.z_app.stb.api.zenterio.EventListener;
 import se.z_app.stb.api.zenterio.RCCommand;
 import se.z_app.stb.api.zenterio.StandardCommand;
+import se.z_app.test_utils.STBFactory;
 import junit.framework.TestCase;
 
 public class APIFactoryZenterioTest extends TestCase {
@@ -19,7 +19,7 @@ public class APIFactoryZenterioTest extends TestCase {
 	AbstractAPIFactory factory;
 	protected void setUp() throws Exception {
 		super.setUp();
-		stb = STBProxy.getProxy();
+		stb = STBFactory.getProxy();
 		factory = AbstractAPIFactory.getFactory(stb);
 	}
 

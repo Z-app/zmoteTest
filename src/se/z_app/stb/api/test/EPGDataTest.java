@@ -8,9 +8,9 @@ import se.z_app.stb.Channel;
 import se.z_app.stb.EPG;
 import se.z_app.stb.Program;
 import se.z_app.stb.STB;
-import se.z_app.stb.STBProxy;
 import se.z_app.stb.api.EPGData;
 import se.z_app.stb.api.STBContainer;
+import se.z_app.test_utils.STBFactory;
 import junit.framework.TestCase;
 
 public class EPGDataTest extends TestCase {
@@ -19,7 +19,7 @@ public class EPGDataTest extends TestCase {
 	
 	protected void setUp() throws Exception {
 		super.setUp();
-		STB stb = STBProxy.getProxy();
+		STB stb = STBFactory.getProxy();
 
 		STBContainer.instance().setActiveSTB(stb);		
 		epgdata = EPGData.instance();
