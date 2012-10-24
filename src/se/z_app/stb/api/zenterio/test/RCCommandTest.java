@@ -33,8 +33,9 @@ public class RCCommandTest extends TestCase {
 	
 	protected void setUp() throws Exception {
 		super.setUp();
-		httpd = new ZmoteHTTPD(8080, new File(".").getAbsoluteFile());
-		stb = STBFactory.getLocal();
+		int port = 3000 + (int)(Math.random()*7000);
+		httpd = new ZmoteHTTPD(port, new File(".").getAbsoluteFile());
+		stb = STBFactory.getLocal(port);
 		cmd = new RCCommand(stb.getIP());
 		
 	}

@@ -28,10 +28,10 @@ public class STBFactory {
 		stb.setMAC("00:07:67:9B:EB:35");
 		return stb;
 	}
-	public static STB getLocal(){
+	public static STB getLocal(int port){
 		STB stb = new STB();
 		stb.setBoxName("Zenterio228");
-		stb.setIP("127.0.0.1:8080");
+		stb.setIP("127.0.0.1:" + port);
 		stb.setType(STBEnum.ZENTERIO);
 		stb.setMAC("00:07:67:9B:EB:32");
 		return stb;

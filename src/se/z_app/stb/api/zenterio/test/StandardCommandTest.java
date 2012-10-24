@@ -6,23 +6,27 @@ import junit.framework.TestCase;
 import se.z_app.stb.Channel;
 import se.z_app.stb.EPG;
 import se.z_app.stb.Program;
+import se.z_app.stb.STB;
 import se.z_app.stb.WebTVItem;
 import se.z_app.stb.WebTVService;
 import se.z_app.stb.api.zenterio.StandardCommand;
+import se.z_app.test_utils.STBFactory;
 import android.graphics.Bitmap;
 import android.util.Log;
 
 public class StandardCommandTest extends TestCase {
 
+	STB stb = STBFactory.getProxy();
+	
 	public void testGetCurrentChannel(){
-		StandardCommand cmd = new StandardCommand("130.236.248.226");
+		StandardCommand cmd = new StandardCommand(stb.getIP());
 		assertTrue(cmd.getCurrentChannel().getName() != null);
 		assertTrue(cmd.getCurrentChannel().getUrl() != null);
 	}
 	public void testGetEPG(){
 
 
-		StandardCommand cmd = new StandardCommand("130.236.248.226");
+		StandardCommand cmd = new StandardCommand(stb.getIP());
 
 		long time = System.currentTimeMillis();
 		EPG epg = cmd.getEPG();
@@ -66,7 +70,7 @@ public class StandardCommandTest extends TestCase {
 	}
 
 	public void testGetWebTVServices(){
-		StandardCommand cmd = new StandardCommand("130.236.248.226");
+		StandardCommand cmd = new StandardCommand(stb.getIP());
 		WebTVService sevices[] = cmd.getWebTVServices();
 		assertTrue(sevices.length == 3);
 
@@ -79,7 +83,7 @@ public class StandardCommandTest extends TestCase {
 	}
 
 	public void testSearchWebTvService(){
-		StandardCommand cmd = new StandardCommand("130.236.248.226");
+		StandardCommand cmd = new StandardCommand(stb.getIP());
 		WebTVService sevices[] = cmd.getWebTVServices();
 
 		assertTrue(sevices.length > 0);
@@ -102,7 +106,7 @@ public class StandardCommandTest extends TestCase {
 	}
 
 	public void testGetChannelImage(){
-		StandardCommand cmd = new StandardCommand("130.236.248.226");
+		StandardCommand cmd = new StandardCommand(stb.getIP());
 		Channel ch = new Channel();
 		Bitmap icon;
 		ch.setNr(1);
@@ -115,7 +119,7 @@ public class StandardCommandTest extends TestCase {
 		assertTrue(icon != null);
 	}
 	public void testGetWebTVServiceIcon(){
-		StandardCommand cmd = new StandardCommand("130.236.248.226");
+		StandardCommand cmd = new StandardCommand(stb.getIP());
 		WebTVService service = new WebTVService();
 		service.setID("youtube");
 		service.setName("Youtube");
@@ -128,7 +132,7 @@ public class StandardCommandTest extends TestCase {
 	}
 	
 	public void testGetWebTVItemIcon(){
-		StandardCommand cmd = new StandardCommand("130.236.248.226");
+		StandardCommand cmd = new StandardCommand(stb.getIP());
 		WebTVItem item = new WebTVItem();
 		item.setId("youtube:media:lUjDq67nBCA");
 		item.setTitle("LolCatz Compilation");
