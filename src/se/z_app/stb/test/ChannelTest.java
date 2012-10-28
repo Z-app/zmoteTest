@@ -141,10 +141,7 @@ public class ChannelTest extends AndroidTestCase {
 		}
 		program = new Program();
 		program.setName(programName.toString());
-		System.out.println(programArray.length);
-		System.out.println(programArray[7].getName());
 		for (int i = 0; i < numberOfProgams; i++) {
-			System.out.println(i);
 			channel.addProgram(programArray[i]);
 		}
 		Iterator<Program> iterator = channel.iterator();
