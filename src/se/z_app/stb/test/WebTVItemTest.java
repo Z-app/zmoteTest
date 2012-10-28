@@ -5,6 +5,11 @@ import se.z_app.stb.WebTVService;
 import android.graphics.Bitmap;
 import android.test.AndroidTestCase;
 
+/**
+ * Test class for WebTVItem class. Fully implemented.
+ * @author Emanuel Reneby
+ *
+ */
 public class WebTVItemTest extends AndroidTestCase {
 	
 	
