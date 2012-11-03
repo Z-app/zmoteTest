@@ -10,7 +10,11 @@ import se.z_app.test_utils.HTTPRequestHandlerTestContainer;
 import se.z_app.test_utils.STBFactory;
 import android.test.AndroidTestCase;
 
-
+/**
+ * 
+ * @author Viktor Håkansson, Leonard Jansson
+ *
+ */
 
 public class RCProxyTestInt extends AndroidTestCase {
 	public int sleepTime = 500;
@@ -21,10 +25,12 @@ public class RCProxyTestInt extends AndroidTestCase {
 	RCProxy cmd;
 
 	public void setUp() throws Exception {
+//Creating a random port.
 		int port = 3000 + (int)(Math.random()*7000);
+// 
 		httpd = new ZmoteHTTPD(port, new File(".").getAbsoluteFile());
+// Setting the stb to one generated one.
 		stb = STBFactory.getLocal(port);
-
 		STBContainer.instance().setActiveSTB(stb);	
 		cmd = RCProxy.instance();	
 		container = new HTTPRequestHandlerTestContainer("/cgi-bin/writepipe_key");
@@ -37,13 +43,14 @@ public class RCProxyTestInt extends AndroidTestCase {
 	}
 
 	public void testUp() { 
+// Switching channel through the RCProxy
 		cmd.up();	
+//time delay so that all the actions have time to be performed
 		try {
 			Thread.sleep(sleepTime);
 		} catch (InterruptedException e) {}
-
+// getting the content in the HTTP
 		String returnedPost = (String)container.getParms().get("raw");
-
 		assertEquals(container.getMethod(),"POST");
 		assertEquals(returnedPost,"pup");
 	}
