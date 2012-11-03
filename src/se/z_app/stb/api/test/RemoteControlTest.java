@@ -3,16 +3,14 @@ package se.z_app.stb.api.test;
 import java.io.File;
 import java.util.Random;
 
+import junit.framework.TestCase;
 import se.z_app.httpserver.ZmoteHTTPD;
 import se.z_app.stb.STB;
-import se.z_app.stb.api.EPGData;
 import se.z_app.stb.api.RemoteControl;
-import se.z_app.stb.api.STBContainer;
 import se.z_app.stb.api.RemoteControl.Button;
-import se.z_app.stb.api.zenterio.RCCommand;
+import se.z_app.stb.api.STBContainer;
 import se.z_app.test_utils.HTTPRequestHandlerTestContainer;
 import se.z_app.test_utils.STBFactory;
-import junit.framework.TestCase;
 
 public class RemoteControlTest extends TestCase {
 

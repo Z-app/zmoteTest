@@ -1,11 +1,8 @@
 package se.z_app.test_utils;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Properties;
 
 import se.z_app.httpserver.NanoHTTPD.Response;
-import se.z_app.httpserver.NanoHTTPD;
 import se.z_app.httpserver.ZmoteHTTPD;
 import se.z_app.httpserver.ZmoteHTTPDRequestHandler;
 
