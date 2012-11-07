@@ -1,6 +1,8 @@
 package se.z_app.stb.test;
 
 import java.util.Date;
+
+import se.z_app.stb.Channel;
 import se.z_app.stb.Program;
 import android.test.AndroidTestCase;
 
@@ -22,7 +24,7 @@ public class ProgramTest extends AndroidTestCase {
 	
 	protected void setUp() throws Exception {
 		super.setUp();
-		program = new Program();
+		program = new Program( new Channel());
 		program.setName(name);
 		program.setEventID(eventID);
 		program.setStart(start);
