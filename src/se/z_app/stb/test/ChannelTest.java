@@ -133,13 +133,13 @@ public class ChannelTest extends AndroidTestCase {
 		for (int i = 0; i < numberOfProgams; i++) {
 			j++;
 			date = new Date(12,9, j);
-			program = new Program();
+			program = new Program(channel);
 			program.setName(programName.toString());
 			program.setStart(date);
 			programArray[i] = program;
 			programName--;
 		}
-		program = new Program();
+		program = new Program(channel);
 		program.setName(programName.toString());
 		for (int i = 0; i < numberOfProgams; i++) {
 			channel.addProgram(programArray[i]);
