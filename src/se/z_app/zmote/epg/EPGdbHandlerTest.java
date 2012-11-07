@@ -39,7 +39,7 @@ public class EPGdbHandlerTest extends AndroidTestCase {
 		channel1.setTsid(12);
 
 
-		program = new Program();  //create a program
+		program = new Program(channel);  //create a program
 		program.setName("TopGear");
 		program.setEventID(1337);
 		@SuppressWarnings("deprecation")
@@ -49,7 +49,7 @@ public class EPGdbHandlerTest extends AndroidTestCase {
 		program.setShortText("TopGear, start your engines");
 		program.setLongText("The longrunner is back, featuring Clarkson, May and James, don's miss it");
 
-		program2 = new Program();  //create a program
+		program2 = new Program(channel1);  //create a program
 		program2.setName("How I met your mother");
 		program2.setEventID(1338);
 		//		@SuppressWarnings("deprecation")
