@@ -121,4 +121,11 @@ public class EPGdbHandlerTest extends AndroidTestCase {
 		epg.setStb(stb);
 		assertEquals(epg.getStb(), db.selectEPG(stb).getStb());
 	}
+	public void testSelectChannals(){
+		Channel[] channels = new Channel[2];
+		channels[0]=channel;
+		channels[1]=channel1;
+		db.updateChannels(stb, channels);
+		assertEquals(channels[1].getName(), db.selectChannals(stb)[0].getName());
+	}
 }
