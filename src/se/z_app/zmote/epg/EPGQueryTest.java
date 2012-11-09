@@ -21,8 +21,7 @@ public class EPGQueryTest extends AndroidTestCase {
 	/**
 	 * Set up the channels and programs for the test
 	 */
-	public void setUp()
-	{
+	public void setUp() {
 		theQuery = new EPGQuery();
 		
 		Channel channel1 = new Channel(); //create a channel
@@ -108,8 +107,7 @@ public class EPGQueryTest extends AndroidTestCase {
 	/**
 	 * Test if the search query using string works
 	 */
-	public void testStringSearchProgram()
-	{
+	public void testStringSearchProgram() {
 		assertTrue(theQuery.searchProgram(PROGRAM_NAME).length == 2);
 		assertTrue(theQuery.searchProgram(PROGRAM3_NAME).length == 1);
 		assertTrue(theQuery.searchProgram(PROGRAM2_NAME).length == 1);
@@ -119,8 +117,7 @@ public class EPGQueryTest extends AndroidTestCase {
 	/**
 	 * Test if the search query using time intervals works
 	 */
-	public void testIntervalSearchProgram()
-	{
+	public void testIntervalSearchProgram() {
 		assertTrue(theQuery.searchProgram(new Date(System.currentTimeMillis()), 1000 * 750).length == 0);
 		assertTrue(theQuery.searchProgram(new Date(System.currentTimeMillis()), 1000 * 1500).length == 1);
 		assertTrue(theQuery.searchProgram(new Date(System.currentTimeMillis()), 3600 * 1500).length == 2);

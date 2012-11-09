@@ -13,6 +13,11 @@ import se.z_app.stb.api.STBContainer;
 import se.z_app.test_utils.STBFactory;
 import junit.framework.TestCase;
 
+/**
+ * Test class for the EPGData class
+ * @author
+ *
+ */
 public class EPGDataTest extends TestCase {
 
 	public EPGData epgdata;
@@ -29,13 +34,14 @@ public class EPGDataTest extends TestCase {
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}
-
+	
+	/**
+	 * Test for the "getEPG" function
+	 */
 	public void testGetEPG() {epgdata = EPGData.instance();
 	
 		EPG epg = epgdata.getEPG();
 		
-		assertTrue(epg != null);
-
 		Iterator<Channel> epgIterator = epg.iterator();
 		assertTrue(epgIterator != null);
 		int i = 0;
@@ -70,7 +76,10 @@ public class EPGDataTest extends TestCase {
 		assertTrue(channel.getNr() == 10);
 		
 	}
-
+	
+	/**
+	 * Test for the getCurrentChannel function
+	 */
 	public void testGetCurrentChannel() {
 		assertTrue(epgdata.getCurrentChannel().getName() != null);
 		assertTrue(epgdata.getCurrentChannel().getUrl() != null);
@@ -95,7 +104,10 @@ public class EPGDataTest extends TestCase {
 		assertTrue(icon2 != null);
 		assertTrue(!icon1.equals(icon2));
 	}
-
+	
+	/**
+	 * Test adding a channel icon
+	 */
 	public void testAddChannelIcon(){
 		EPG epg = epgdata.getEPG();
 		Channel ch1 = epg.getChannel(5);
@@ -109,6 +121,9 @@ public class EPGDataTest extends TestCase {
 		assertTrue(!ch1.getIcon().equals(ch2.getIcon()));
 	}
 	
+	/**
+	 * Test the populateWithChannelIcon function
+	 */
 	public void testAddChannelIcons(){
 		EPG epg = epgdata.getEPG();
 		epgdata.populateWithChannelIcon(epg);
@@ -118,5 +133,16 @@ public class EPGDataTest extends TestCase {
 		}
 	}
 	
+	/**
+	 * Test the populateAbsentChannelIcon function
+	 */
+	public void testPopulateAbsent(){
+		EPG epg = epgdata.getEPG();
+		epgdata.populateAbsentChannelIcon(epg);
+		Iterator<Channel> channels = epg.iterator();
+		while(channels.hasNext()){
+			assertTrue(channels.next().getIcon() != null);
+		}
+	}
 
 }
