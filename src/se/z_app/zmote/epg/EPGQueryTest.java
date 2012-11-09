@@ -17,6 +17,8 @@ public class EPGQueryTest extends AndroidTestCase {
 	final String PROGRAM_NAME = "TopGear";
 	final String PROGRAM2_NAME = "How I met your mother";
 	final String PROGRAM3_NAME = "TopGearUS";
+	private Channel channel1, channel2, channel3;
+	private Program earlyProgram;
 	
 	/**
 	 * Set up the channels and programs for the test
@@ -24,7 +26,7 @@ public class EPGQueryTest extends AndroidTestCase {
 	public void setUp() {
 		theQuery = new EPGQuery();
 		
-		Channel channel1 = new Channel(); //create a channel
+		channel1 = new Channel(); //create a channel
 		channel1.setName("BBC1");
 		channel1.setNr(1);
 		channel1.setIconUrl("/res/icon.png");
@@ -32,7 +34,7 @@ public class EPGQueryTest extends AndroidTestCase {
 		channel1.setSid(2);
 		channel1.setTsid(3);
 
-		Channel channel2 = new Channel(); //create a channel
+		channel2 = new Channel(); //create a channel
 		channel2.setName("SVT");
 		channel2.setNr(2);
 		channel2.setIconUrl("/res/icon.png");
@@ -40,7 +42,7 @@ public class EPGQueryTest extends AndroidTestCase {
 		channel2.setSid(11);
 		channel2.setTsid(12);
 		
-		Channel channel3 = new Channel(); //create a channel
+		channel3 = new Channel(); //create a channel
 		channel3.setName("TV4");
 		channel3.setNr(3);
 		channel3.setIconUrl("/res/icon.png");
@@ -78,13 +80,15 @@ public class EPGQueryTest extends AndroidTestCase {
 		program3.setShortText("TopGear, start your engines");
 		program3.setLongText("The longrunner is back, featuring Clarkson, May and James, don's miss it");
 		
-		Program earlyProgram = new Program(channel1);
+		earlyProgram = new Program(channel1);
 		earlyProgram.setName("Early Program");
 		earlyProgram.setStart(new Date(System.currentTimeMillis() - 3600 * 1000));
+		earlyProgram.setDuration(120);
 		
 		Program currentProgram = new Program(channel2);
 		currentProgram.setName("Current Program");
 		currentProgram.setStart(new Date(System.currentTimeMillis() + 1000 * 1000));
+		currentProgram.setDuration(60);
 		
 		Program lateProgram = new Program(channel3);
 		lateProgram.setName("Late Program");
@@ -122,5 +126,29 @@ public class EPGQueryTest extends AndroidTestCase {
 		assertTrue(theQuery.searchProgram(new Date(System.currentTimeMillis()), 1000 * 1500).length == 1);
 		assertTrue(theQuery.searchProgram(new Date(System.currentTimeMillis()), 3600 * 1500).length == 2);
 		assertTrue(theQuery.searchProgram(new Date(System.currentTimeMillis()), 3600 * 2500).length == 3);
+	}
+	
+	/**
+	 * Test the getEPG function
+	 */
+	public void testGetEPG() {
+		assertTrue(theQuery.getEPG() == theQuery.getEPG());
+	}
+	
+	/**
+	 * Test getting a channel by nr
+	 */
+	public void testGetChannelByNr() {
+		assertTrue(theQuery.getChannel(1) == channel1);
+		assertTrue(theQuery.getChannel(2) == channel2);
+		assertTrue(theQuery.getChannel(3) == channel3);
+	}
+	
+	/**
+	 * Test getting active programs
+	 */
+	public void testGetActiveChannels() {
+		assertTrue(theQuery.getActivePrograms().length == 1);
+		assertTrue(theQuery.getActivePrograms()[0] == earlyProgram);
 	}
 }
