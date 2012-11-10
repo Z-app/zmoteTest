@@ -107,25 +107,25 @@ public class EPGdbHandlerTest extends AndroidTestCase {
 		Program[] programs = db.selectPrograms(stb, channel);
 		assertEquals(program.getName(), programs[0].getName());		
 	}
-	/*public void testDontDuplicate(){
-		Program[] programs = db.selectPrograms(stb1,channel);  //should fail, no programs on this stb
-		assertEquals(program.getName(), programs[0].getName());
-	}*/
+
 	/**
 	 * A test that tests the selectEPG function in the EPGdbHandler, more tests needed?
 	 */
-	public void testSelectEPG(){
-		EPG epg = new EPG();
-		epg.addChannel(channel);
-		epg.addChannel(channel1);
-		epg.setStb(stb);
-		assertEquals(epg.getStb(), db.selectEPG(stb).getStb());
-	}
+	
 	public void testSelectChannals(){
 		Channel[] channels = new Channel[2];
 		channels[0]=channel;
 		channels[1]=channel1;
 		db.updateChannels(stb, channels);
 		assertEquals(channels[1].getName(), db.selectChannals(stb)[0].getName());
+	}
+	public void testUpdateAndSelectEPG(){
+		EPG epg = new EPG();
+		epg.setStb(stb);
+		epg.addChannel(channel);
+		epg.addChannel(channel1);
+		db.updateEPG(stb, epg);
+		assertEquals(epg.getStb().getBoxName(), db.selectEPG(stb).getStb().getBoxName());
+		assertEquals(epg.getDateOfCreation(), db.selectEPG(stb).getDateOfCreation());
 	}
 }
