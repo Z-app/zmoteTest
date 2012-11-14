@@ -138,7 +138,7 @@ public class EPGQueryTest extends AndroidTestCase {
 	/**
 	 * Test getting a channel by nr
 	 */
-	public void testGetChannelByNr() {
+	public void testGetChannel() {
 		assertTrue(theQuery.getChannel(1) == channel1);
 		assertTrue(theQuery.getChannel(2) == channel2);
 		assertTrue(theQuery.getChannel(3) == channel3);
@@ -147,7 +147,7 @@ public class EPGQueryTest extends AndroidTestCase {
 	/**
 	 * Test getting active programs
 	 */
-	public void testGetActivePrograms() {
+	public void testGetActiveProgram() {
 		assertTrue(theQuery.getActivePrograms().length == 1);
 		assertTrue(theQuery.getActivePrograms()[0] == earlyProgram);
 	}
