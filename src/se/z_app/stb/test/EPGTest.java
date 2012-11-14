@@ -20,7 +20,7 @@ public class EPGTest extends AndroidTestCase {
 	private STB stb;
 	private static final long dateOfCreation = 13;
 	private static final String ip = "1.2.3.4";
-
+//Stefan testar sin commit/pull
 	protected void setUp() throws Exception {
 		super.setUp();
 		epg = new EPG();
