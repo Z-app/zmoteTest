@@ -147,7 +147,7 @@ public class EPGQueryTest extends AndroidTestCase {
 	/**
 	 * Test getting active programs
 	 */
-	public void testGetActiveChannels() {
+	public void testGetActivePrograms() {
 		assertTrue(theQuery.getActivePrograms().length == 1);
 		assertTrue(theQuery.getActivePrograms()[0] == earlyProgram);
 	}
