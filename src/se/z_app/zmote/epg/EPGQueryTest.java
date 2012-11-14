@@ -121,7 +121,7 @@ public class EPGQueryTest extends AndroidTestCase {
 	/**
 	 * Test if the search query using time intervals works
 	 */
-	public void testIntervalSearchProgram() {
+	public void testSearchProgram() {
 		assertTrue(theQuery.searchProgram(new Date(System.currentTimeMillis()), 1000 * 750).length == 0);
 		assertTrue(theQuery.searchProgram(new Date(System.currentTimeMillis()), 1000 * 1500).length == 1);
 		assertTrue(theQuery.searchProgram(new Date(System.currentTimeMillis()), 3600 * 1500).length == 2);
