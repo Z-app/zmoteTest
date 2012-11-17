@@ -14,7 +14,6 @@ import android.test.AndroidTestCase;
 public class DefaultStateTestInt extends AndroidTestCase {
 	
 	private static final String uri = "/cgi-bin/writepipe_key";
-	private static final long sleepTime = 200;
 	private ZmoteHTTPD httpd;
 	private HTTPRequestHandlerTestContainer container;
 	private STB stb;
