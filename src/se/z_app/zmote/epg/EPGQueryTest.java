@@ -121,7 +121,7 @@ public class EPGQueryTest extends AndroidTestCase {
 	/**
 	 * Test if the search query using time intervals works
 	 */
-	public void testIntervalSearchProgram() {
+	public void testSearchProgram() {
 		assertTrue(theQuery.searchProgram(new Date(System.currentTimeMillis()), 1000 * 750).length == 0);
 		assertTrue(theQuery.searchProgram(new Date(System.currentTimeMillis()), 1000 * 1500).length == 1);
 		assertTrue(theQuery.searchProgram(new Date(System.currentTimeMillis()), 3600 * 1500).length == 2);
@@ -138,7 +138,7 @@ public class EPGQueryTest extends AndroidTestCase {
 	/**
 	 * Test getting a channel by nr
 	 */
-	public void testGetChannelByNr() {
+	public void testGetChannel() {
 		assertTrue(theQuery.getChannel(1) == channel1);
 		assertTrue(theQuery.getChannel(2) == channel2);
 		assertTrue(theQuery.getChannel(3) == channel3);
@@ -147,7 +147,7 @@ public class EPGQueryTest extends AndroidTestCase {
 	/**
 	 * Test getting active programs
 	 */
-	public void testGetActiveChannels() {
+	public void testGetActiveProgram() {
 		assertTrue(theQuery.getActivePrograms().length == 1);
 		assertTrue(theQuery.getActivePrograms()[0] == earlyProgram);
 	}

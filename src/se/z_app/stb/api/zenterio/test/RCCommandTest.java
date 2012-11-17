@@ -21,7 +21,7 @@ import junit.framework.TestCase;
 
 public class RCCommandTest extends TestCase {
 
-	public int sleepTime = 200;
+	public int sleepTime = 2000;
 
 	ZmoteHTTPD httpd;
 	HTTPRequestHandlerTestContainer container;

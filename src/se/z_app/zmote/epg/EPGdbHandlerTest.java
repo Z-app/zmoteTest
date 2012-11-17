@@ -128,4 +128,17 @@ public class EPGdbHandlerTest extends AndroidTestCase {
 		assertEquals(epg.getStb().getBoxName(), db.selectEPG(stb).getStb().getBoxName());
 		assertEquals(epg.getDateOfCreation(), db.selectEPG(stb).getDateOfCreation());
 	}
+	public void testUpdateChannel(){
+		db.updateChannel(stb, channel);
+		assertEquals(channel.getName(), db.selectChannals(stb)[0].getName());
+		
+	
+	}
+	public void testPrograms(){
+		Program[] programs = new Program[2];
+		programs[0]=program;
+		programs[1]=program2;
+		db.updatePrograms(stb, channel, programs);
+		assertEquals(program.getEventID(), db.selectPrograms(stb, channel)[0].getEventID());
+	}
 }
