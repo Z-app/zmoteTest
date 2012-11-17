@@ -58,9 +58,7 @@ public class DefaultStateTestInt extends AndroidTestCase {
 	}
 	
 	private String check() {
-		try {
-			Thread.sleep(sleepTime);
-		} catch (InterruptedException e) {}
+		while (container.getParms() == null) { }
 		String returnedPost = (String)container.getParms().get("raw");
 		assertTrue(container.getMethod().equals("POST"));
 		return returnedPost;
