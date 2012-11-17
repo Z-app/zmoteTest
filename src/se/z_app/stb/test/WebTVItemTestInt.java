@@ -11,6 +11,7 @@ import android.test.AndroidTestCase;
  * ID 2.1.1
  * Integration test for the classes WebTVService and WebTVItem.
  */
+// Completed
 public class WebTVItemTestInt extends AndroidTestCase {
 
 	private static final String author = "authorString";

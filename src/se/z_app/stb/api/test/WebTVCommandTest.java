@@ -2,8 +2,7 @@ package se.z_app.stb.api.test;
 
 import java.io.File;
 
-import android.util.Log;
-
+import junit.framework.TestCase;
 import se.z_app.httpserver.ZmoteHTTPD;
 import se.z_app.stb.STB;
 import se.z_app.stb.WebTVItem;
@@ -14,7 +13,8 @@ import se.z_app.stb.api.zenterio.RCCommand;
 import se.z_app.stb.api.zenterio.StandardCommand;
 import se.z_app.test_utils.HTTPRequestHandlerTestContainer;
 import se.z_app.test_utils.STBFactory;
-import junit.framework.TestCase;
+import android.graphics.Bitmap;
+import android.util.Log;
 
 public class WebTVCommandTest extends TestCase{
 
@@ -99,5 +99,29 @@ public class WebTVCommandTest extends TestCase{
 //		//Log.i("ZmoteTestLog", "WebTVItem played  " + returnedPost);
 //		assertTrue(container.getMethod().equals("GET"));
 //		assertTrue(returnedPost.equals("youtube:media:ctJJrBw7e-c"));
+	}
+	public void testgeticonwebtvitem(){
+		WebTVCommand cmd = WebTVCommand.instance();
+		WebTVService wts = new WebTVService();
+		wts.setID("youtube:media:lUjDq67nBCA");
+		wts.setName("LolCatz Compilation");
+		wts.setIconURL("http://i.ytimg.com/vi/lUjDq67nBCA/hqdefault.jpg");
+		Bitmap icon;
+		icon = cmd.getIcon(wts);
+
+		assertTrue(icon != null);
+	}
+	public void testgeticonwebtvservice(){
+	WebTVCommand cmd = WebTVCommand.instance();
+	WebTVItem item = new WebTVItem();
+	item.setId("youtube:media:lUjDq67nBCA");
+	item.setTitle("LolCatz Compilation");
+	item.setAuthor("");
+	item.setDuration(400);
+	item.setIconURL("http://i.ytimg.com/vi/lUjDq67nBCA/hqdefault.jpg");
+	Bitmap icon;
+	icon = cmd.getIcon(item);
+	
+	assertTrue(icon != null);
 	}
 }

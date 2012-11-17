@@ -10,8 +10,6 @@ import junit.framework.TestCase;
  * @author Viktor Håkansson, Stefan Konac
  * 
  */
-
-
 public class APIFactoryZenterioTestInt extends TestCase {
 // Creating an STB as the STB1
 	STB stb = STBFactory.get1();
