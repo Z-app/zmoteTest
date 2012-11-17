@@ -134,4 +134,11 @@ public class EPGdbHandlerTest extends AndroidTestCase {
 		
 	
 	}
+	public void testPrograms(){
+		Program[] programs = new Program[2];
+		programs[0]=program;
+		programs[1]=program2;
+		db.updatePrograms(stb, channel, programs);
+		assertEquals(program.getEventID(), db.selectPrograms(stb, channel)[0].getEventID());
+	}
 }
