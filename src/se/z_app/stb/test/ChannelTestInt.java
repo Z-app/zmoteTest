@@ -1,6 +1,6 @@
 package se.z_app.stb.test;
-
 import java.util.Date;
+import java.util.Iterator;
 
 import se.z_app.stb.Channel;
 import se.z_app.stb.Program;
@@ -9,14 +9,16 @@ import android.test.AndroidTestCase;
 
 /**
  * 
- * @author Stefan Konac and Emanuel Reneby
+ * @author Stefan Konac, Emanuel Reneby, Viktor Håkansson, Viktor von Zeipel
  * ID 2.1.2
  */
+
+
 public class ChannelTestInt extends AndroidTestCase {
 	
 	private static final Bitmap icon = null;
 	private static final String iconUrl = null;
-	private static final String nameC = null;
+	private static final String nameC = "4Music";
 	private static final int nr = 0;
 	private static final int onid = 0;
 	private static final int sid = 0;
@@ -27,7 +29,8 @@ public class ChannelTestInt extends AndroidTestCase {
 	private static final String longText = null;
 	private static final String nameP = null;
 	private static final String shortText = null;
-	private static final Date start = null;
+	// Dummy data for test
+	private static final Date start = new Date(2012,11,15,11,11);
 	private Program program;
 	private Channel channel;
 
@@ -55,8 +58,21 @@ public class ChannelTestInt extends AndroidTestCase {
 		super.tearDown();
 	}
 
+	/**
+	 * Method that tests to add program and check if the added program is in the iterator.
+	 * 
+	 */
+	
 	public void testAddProgram() {
-		fail("Not yet implemented");
-	}
+		channel.addProgram(program);
+		Iterator<Program> iterator = channel.iterator();
+		boolean isTrue = false;
+		while(iterator.hasNext()){
+			if(program==iterator.next()){
+				isTrue=true;
+			}
 
+		}
+	}
 }
+
