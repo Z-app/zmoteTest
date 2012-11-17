@@ -10,6 +10,7 @@ import se.z_app.stb.api.STBContainer;
 import se.z_app.test_utils.HTTPRequestHandlerTestContainer;
 import se.z_app.test_utils.STBFactory;
 import android.test.AndroidTestCase;
+import android.util.Log;
 
 public class DefaultStateTestInt extends AndroidTestCase {
 	
@@ -37,23 +38,30 @@ public class DefaultStateTestInt extends AndroidTestCase {
 		ds.up();
 		assertTrue(check().equals("pup"));
 		ds.down();
-		assertTrue(check().equals("pdown"));
+		assertTrue(check("pup").equals("pdown"));
 		ds.right();
-		assertTrue(check().equals("pright"));
+		assertTrue(check("pdown").equals("pright"));
 		ds.left();
-		assertTrue(check().equals("pleft"));
+		assertTrue(check("pright").equals("pleft"));
 		ds.ok();
-		assertTrue(check().equals("pok"));		
+		assertTrue(check("pleft").equals("pok"));		
 		ds.back();	
-		assertTrue(check().equals("pback"));
+		assertTrue(check("pok").equals("pback"));
 		ds.mute();
-		assertTrue(check().equals("pmute"));
+		assertTrue(check("pback").equals("pmute"));
 		ds.info();
-		assertTrue(check().equals("pinfo"));
+		assertTrue(check("pmute").equals("pinfo"));
 		ds.menu();
-		assertTrue(check().equals("pmenu"));
+		assertTrue(check("pinfo").equals("pmenu"));
 		ds.exit();
-		assertTrue(check().equals("pexit"));
+		assertTrue(check("pmenu").equals("pexit"));
+	}
+	
+	private String check(String s) {
+		while (container.getParms() == null || container.getParms().get("raw").toString().equals(s)) { }
+		String returnedPost = (String)container.getParms().get("raw");
+		assertTrue(container.getMethod().equals("POST"));
+		return returnedPost;
 	}
 	
 	private String check() {
