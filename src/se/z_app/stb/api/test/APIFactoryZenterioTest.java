@@ -6,7 +6,7 @@ import se.z_app.stb.api.BiDirectionalCmdInterface;
 import se.z_app.stb.api.DiscoveryInterface;
 import se.z_app.stb.api.EventListnerInterface;
 import se.z_app.stb.api.MonoDirectionalCmdInterface;
-import se.z_app.stb.api.zenterio.Discovery;
+import se.z_app.stb.api.zenterio.DiscoveryOld;
 import se.z_app.stb.api.zenterio.EventListener;
 import se.z_app.stb.api.zenterio.RCCommand;
 import se.z_app.stb.api.zenterio.StandardCommand;
@@ -30,7 +30,7 @@ public class APIFactoryZenterioTest extends TestCase {
 	public void testGetDiscovery() {
 		assertTrue(factory != null);
 		DiscoveryInterface di = factory.getDiscovery();
-		assertTrue(di.getClass() == Discovery.class);
+		assertTrue(di.getClass() == DiscoveryOld.class);
 	}
 
 	public void testGetBiDirectional() {
