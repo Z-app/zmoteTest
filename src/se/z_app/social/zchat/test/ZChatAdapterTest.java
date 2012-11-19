@@ -34,28 +34,38 @@ public class ZChatAdapterTest extends AndroidTestCase{
 		ZChatAdapter theZAdapter = new ZChatAdapter();
 		EPG theEPG = EPGData.instance().getEPG();
 		ArrayList<Feed> theFeeds = new ArrayList<Feed>();
+		int counter = 0;
 		assertTrue(theEPG != null);
 		for(Channel theChannel : theEPG) {
 			//Log.e("In for", "In for");
+			
 			for(Program theProgram : theChannel) {
-				Feed theNewFeed = new Feed(theProgram);
-				
-				Post thePost = new Post();
-				thePost.setContent("Some random post about " + theProgram.getName());
-				thePost.setUserName("Marcus");
-				thePost.setLastUpdate(Date.valueOf("2012-11-17"));
-				
-				theNewFeed.addPost(thePost);
-				theFeeds.add(theNewFeed);
-				theZAdapter.commitPost(theNewFeed, thePost);
-				//Log.e("Program name: ", theProgram.getName());
+				if(counter++ < 10)
+				{
+					Feed theNewFeed = new Feed(theProgram);
+					
+					Post thePost = new Post();
+					thePost.setContent("Some random post about " + theProgram.getName());
+					thePost.setUserName("Marcus");
+					thePost.setLastUpdate(Date.valueOf("2012-11-17"));
+					
+					theNewFeed.addPost(thePost);
+					theFeeds.add(theNewFeed);
+					theZAdapter.commitPost(theNewFeed, thePost);
+					//Log.e("Program name: ", theProgram.getName());
+				}
 			}
 		}
 		for(Feed theFeedOut: theFeeds) {
-			Log.e(theFeedOut.getProgram().getName(), theFeedOut.iterator().next().getContent());
+			Post localPost = theFeedOut.iterator().next();
+			
+			Log.e(theFeedOut.getProgram().getName(), theFeedOut.getProgram().getName());
+			
 			Feed serverFeed = theZAdapter.getFeed(theFeedOut.getProgram());
-			if(serverFeed != null)
-			Log.e(serverFeed.getProgram().getName(), serverFeed.iterator().next().getContent());
+			assertTrue(serverFeed != null);
+			Post serverPost = serverFeed.iterator().next();
+			assertTrue(serverPost.getContent().equals(localPost.getContent()));
+			
 		}
 		//Log.e("After test", "After test");
 	}
