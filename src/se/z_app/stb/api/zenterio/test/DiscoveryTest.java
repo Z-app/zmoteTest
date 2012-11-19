@@ -29,7 +29,7 @@ public class DiscoveryTest extends AndroidTestCase {
 		boolean unique = true;
 		for(int i = 0 ; i<stbs.length; i++) {
 			
-			if(stbs[i].getIP().equals("130.236.248.226"))
+			if(stbs[i].getIP().equals("130.236.248.228"))
 				proxySTBCheck = true;
 			
 			for(int j = 0; j < stbs.length ; j++ ) {

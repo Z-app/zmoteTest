@@ -12,12 +12,12 @@ import android.test.AndroidTestCase;
 
 /**
  * 
- * @author Viktor Håkansson, Leonard Jansson
+ * @author Viktor Håkansson, Leonard Jansson, Emanuel Reneby, Stefan Konac.
  *
  */
 
 public class RCProxyTestInt extends AndroidTestCase {
-	public int sleepTime = 500;
+	public int sleepTime = 0;
 	ZmoteHTTPD httpd;
 	HTTPRequestHandlerTestContainer container;
 	STB stb;
@@ -46,9 +46,7 @@ public class RCProxyTestInt extends AndroidTestCase {
 // Switching channel through the RCProxy
 		cmd.up();	
 //time delay so that all the actions have time to be performed
-		try {
-			Thread.sleep(sleepTime);
-		} catch (InterruptedException e) {}
+		while (container.getParms() == null) { }
 // getting the content in the HTTP
 		String returnedPost = (String)container.getParms().get("raw");
 		assertEquals(container.getMethod(),"POST");
@@ -56,9 +54,7 @@ public class RCProxyTestInt extends AndroidTestCase {
 	}
 	public void testDown() { 
 		cmd.down();	
-		try {
-			Thread.sleep(sleepTime);
-		} catch (InterruptedException e) {}
+		while (container.getParms() == null) { }
 
 		String returnedPost = (String)container.getParms().get("raw");
 
@@ -67,9 +63,7 @@ public class RCProxyTestInt extends AndroidTestCase {
 	}
 	public void testRight() { 
 		cmd.right();	
-		try {
-			Thread.sleep(sleepTime);
-		} catch (InterruptedException e) {}
+		while (container.getParms() == null) { }
 
 		String returnedPost = (String)container.getParms().get("raw");
 
@@ -78,9 +72,7 @@ public class RCProxyTestInt extends AndroidTestCase {
 	}
 	public void testLeft() { 
 		cmd.left();	
-		try {
-			Thread.sleep(sleepTime);
-		} catch (InterruptedException e) {}
+		while (container.getParms() == null) { }
 
 		String returnedPost = (String)container.getParms().get("raw");
 
@@ -89,9 +81,7 @@ public class RCProxyTestInt extends AndroidTestCase {
 	}
 	public void testOk() { 
 		cmd.ok();	
-		try {
-			Thread.sleep(sleepTime);
-		} catch (InterruptedException e) {}
+		while (container.getParms() == null) { }
 
 		String returnedPost = (String)container.getParms().get("raw");
 
@@ -100,20 +90,14 @@ public class RCProxyTestInt extends AndroidTestCase {
 	}
 	public void testBack() { 
 		cmd.back();	
-		try {
-			Thread.sleep(sleepTime);
-		} catch (InterruptedException e) {}
-
+		while (container.getParms() == null) { }
 		String returnedPost = (String)container.getParms().get("raw");
-
 		assertEquals(container.getMethod(),"POST");
 		assertEquals("pback",returnedPost);
 	}
 	public void testMute() { 
 		cmd.mute();	
-		try {
-			Thread.sleep(sleepTime);
-		} catch (InterruptedException e) {}
+		while (container.getParms() == null) { }
 
 		String returnedPost = (String)container.getParms().get("raw");
 
@@ -122,9 +106,7 @@ public class RCProxyTestInt extends AndroidTestCase {
 	}
 	public void testInfo() { 
 		cmd.info();	
-		try {
-			Thread.sleep(sleepTime);
-		} catch (InterruptedException e) {}
+		while (container.getParms() == null) { }
 
 		String returnedPost = (String)container.getParms().get("raw");
 
@@ -133,9 +115,7 @@ public class RCProxyTestInt extends AndroidTestCase {
 	}
 	public void testMenu() { 
 		cmd.menu();	
-		try {
-			Thread.sleep(sleepTime);
-		} catch (InterruptedException e) {}
+		while (container.getParms() == null) { }
 
 		String returnedPost = (String)container.getParms().get("raw");
 
@@ -144,9 +124,7 @@ public class RCProxyTestInt extends AndroidTestCase {
 	}
 	public void testExit() { 
 		cmd.exit();	
-		try {
-			Thread.sleep(sleepTime);
-		} catch (InterruptedException e) {}
+		while (container.getParms() == null) { }
 
 		String returnedPost = (String)container.getParms().get("raw");
 
