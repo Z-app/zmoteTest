@@ -12,6 +12,11 @@ import se.z_app.test_utils.STBFactory;
 import android.test.AndroidTestCase;
 import android.util.Log;
 
+/**
+ * 
+ * @author Emanuel Reneby
+ *
+ */
 public class DefaultStateTestInt extends AndroidTestCase {
 	
 	private static final String uri = "/cgi-bin/writepipe_key";

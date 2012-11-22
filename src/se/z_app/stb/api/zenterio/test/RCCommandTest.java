@@ -18,6 +18,11 @@ import se.z_app.test_utils.HTTPRequestHandlerTestContainer;
 import se.z_app.test_utils.STBFactory;
 
 import junit.framework.TestCase;
+/**
+ * 
+ * @author Rasmus Holm
+ *
+ */
 
 public class RCCommandTest extends TestCase {
 

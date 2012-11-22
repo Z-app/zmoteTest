@@ -9,6 +9,11 @@ import se.z_app.stb.api.STBContainer;
 import se.z_app.test_utils.STBFactory;
 import android.util.Log;
 
+/**
+ * 
+ * @author Viktor Håkansson, Viktor von Zeipel
+ *
+ */
 public class STBContainerTest extends TestCase {
 	STB stb1 = STBFactory.get1();
 	STB stb2 = STBFactory.get2();
