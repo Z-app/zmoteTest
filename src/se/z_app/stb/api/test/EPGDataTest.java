@@ -15,7 +15,7 @@ import junit.framework.TestCase;
 
 /**
  * Test class for the EPGData class
- * @author
+ * @author Markus Widegren
  *
  */
 public class EPGDataTest extends TestCase {
