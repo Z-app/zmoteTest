@@ -20,6 +20,7 @@ public class ProgramTest extends AndroidTestCase {
 	private static final int duration = 8412;
 	private static final String shortText = "test_short_text";
 	private static final String longText = "test_long_text";
+
 	private Program program;
 	
 	protected void setUp() throws Exception {
@@ -31,6 +32,7 @@ public class ProgramTest extends AndroidTestCase {
 		program.setDuration(duration);
 		program.setShortText(shortText);
 		program.setLongText(longText);
+
 	}
 
 	protected void tearDown() throws Exception {
@@ -60,14 +62,35 @@ public class ProgramTest extends AndroidTestCase {
 	public void testGetStart() {
 		assertEquals(start, program.getStart());
 	}
-
+	
 	public void testSetStart() {
 		@SuppressWarnings("deprecation")
 		Date start2 = new Date(12,11,14);
 		program.setStart(start2);
-		assertEquals(start2, program.getStart());
+		assertEquals(start2, program.getStart());;
 	}
-
+	
+	public void testGetChannel() {
+		Channel channel = new Channel();
+		channel.setNr(10);
+		program.setChannel(channel);
+		assertEquals(channel, program.getChannel());
+	}
+	
+	public void testSetChannel() {
+		Channel channel = new Channel();
+		channel.setNr(15);
+		program.setChannel(channel);
+		assertEquals(channel, program.getChannel());
+	}
+	
+	public void testGetParentChannel() {
+		Channel channel = new Channel();
+		channel.setNr(10);
+		Program p = new Program(channel);
+		assertEquals(channel, p.getParentChannel());
+	}
+	
 	public void testGetDuration() {
 		assertEquals(duration, program.getDuration());
 	}
