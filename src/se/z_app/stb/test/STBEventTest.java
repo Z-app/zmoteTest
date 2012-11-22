@@ -5,13 +5,14 @@ import android.test.AndroidTestCase;
 
 /**
  * Test class for STBEVent class. Fully implemented.
- * @author Emanuel Reneby
+ * @author Emanuel Reneby, Leonard Jansson
  *
  */
 public class STBEventTest extends AndroidTestCase {
 	private static final String type = "test_type";
 	private static final String label = "test_label";
 	private static final String url = "test_url";
+	private static final int value = 29;
 	private STBEvent stbEvent;
 
 	protected void setUp() throws Exception {
@@ -20,6 +21,8 @@ public class STBEventTest extends AndroidTestCase {
 		stbEvent.setType(type);
 		stbEvent.setLabel(label);
 		stbEvent.setUrl(url);
+		stbEvent.setValue(value);		
+		stbEvent.setState(true);		
 	}
 
 	protected void tearDown() throws Exception {
@@ -55,5 +58,23 @@ public class STBEventTest extends AndroidTestCase {
 		stbEvent.setUrl(url2);
 		assertEquals(url2, stbEvent.getUrl());
 	}
+	
+	public void testGetValue() {
+		assertEquals(value, stbEvent.getValue());
+	}
 
+	public void testSetValue() {
+		int value2 = 78;
+		stbEvent.setValue(value2);
+		assertEquals(value2, stbEvent.getValue());
+	}
+	
+	public void testGetState() {
+		assertTrue(stbEvent.getState());
+	}
+
+	public void testSetState() {
+		stbEvent.setState(false);
+		assertFalse(stbEvent.getState());
+	}
 }
