@@ -42,9 +42,8 @@ public class EPGContentHandlerTest extends AndroidTestCase {
 	 * Test the buildEPG function, make sure it doesn't crash
 	 */
 	public void testBuildEPG() {
-//		EPGContentHandler.setContext(this.getContext());
-		
-//		EPGContentHandler.instance().setUpdateInterval(1);
+		EPGContentHandler.setContext(this.getContext());
+		EPGContentHandler.instance().setUpdateInterval(1);
 		EPG theEarlyEPG = EPGContentHandler.instance().getEPG(); 
 		try {
 			Thread.sleep(1000);
@@ -52,13 +51,11 @@ public class EPGContentHandlerTest extends AndroidTestCase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		assertTrue(EPGContentHandler.instance().getEPG() != theEarlyEPG);
-		
-		
-//		EPGContentHandler.instance().setUpdateInterval(1000000000);
+		assertTrue(EPGContentHandler.instance().getEPG() != theEarlyEPG);	
+		EPGContentHandler.instance().setUpdateInterval(1000000000);
 		theEarlyEPG = EPGContentHandler.instance().getEPG();
 		assertTrue(EPGContentHandler.instance().getEPG() == theEarlyEPG);
-		
+
 	}
-	
+
 }
