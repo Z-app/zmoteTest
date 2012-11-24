@@ -3,6 +3,7 @@ package se.z_app.social.zchat.test;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import se.z_app.social.Comment;
 import se.z_app.social.Feed;
 import se.z_app.social.Post;
 import se.z_app.social.zchat.ZChatAdapter;
@@ -22,7 +23,7 @@ import android.util.Log;
  * @author Marcus Widegren
  *
  */
-/*
+
 public class ZChatAdapterTest extends AndroidTestCase{
 	public void setUp() {
 		STB theSTB = STBFactory.getProxy();
@@ -31,15 +32,33 @@ public class ZChatAdapterTest extends AndroidTestCase{
 	}
 	
 	public void testGetFeed() {
+		/*
 		Feed theFeed = new Feed(new Program(new Channel()));
 		ZChatAdapter theZAdapter = new ZChatAdapter();
 		EPG theEPG = EPGData.instance().getEPG();
 		ArrayList<Feed> theFeeds = new ArrayList<Feed>();
 		int counter = 0;
 		assertTrue(theEPG != null);
-		for(Channel theChannel : theEPG) {
+		Post aPost = new Post();
+		aPost.setContent(new String("more post!"));
+		aPost.setUserName("Marcus");
+		Channel theChannel = theEPG.iterator().next();
+		Program theProgram = theChannel.iterator().next();
+		
+		Feed targetFeed = theZAdapter.commitPost(new Feed(theProgram), aPost);
+		
+		Comment aComment = new Comment(aPost);
+		aComment.setContent("lolz @ post");
+		aComment.setUserName("Linus");
+		
+		theZAdapter.commitComment(targetFeed, aPost, aComment);
+		*/
+		//Feed serverFeed = theZAdapter.getFeed(theProgram);
+		//Comment aReturnedComment = serverFeed.iterator().next().iterator().next();
+		//for(Channel theChannel : theEPG) {
 			//Log.e("In for", "In for");
 			
+			/*
 			for(Program theProgram : theChannel) {
 				if(counter++ < 10)
 				{
@@ -76,7 +95,6 @@ public class ZChatAdapterTest extends AndroidTestCase{
 			}
 			
 		}
-		//Log.e("After test", "After test");
+		//Log.e("After test", "After test");*/
 	}
 }
-*/
