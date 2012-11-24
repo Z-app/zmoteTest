@@ -1,14 +1,14 @@
 package se.z_app.stb.api.zenterio.test;
 import se.z_app.stb.STB;
-import se.z_app.stb.api.zenterio.Discovery;
+import se.z_app.stb.api.zenterio.DiscoveryOld;
 import android.test.AndroidTestCase;
 import android.util.Log;
 
 public class DiscoveryTest extends AndroidTestCase {
-	private Discovery tester;
+	private DiscoveryOld tester;
 	
 	public void setUp() throws Exception {
-		tester = new Discovery("130.236.248.");
+		tester = new DiscoveryOld("130.236.248.");
 	}	
 
 	public void tearDown() throws Exception {
@@ -29,7 +29,7 @@ public class DiscoveryTest extends AndroidTestCase {
 		boolean unique = true;
 		for(int i = 0 ; i<stbs.length; i++) {
 			
-			if(stbs[i].getIP().equals("130.236.248.226"))
+			if(stbs[i].getIP().equals("130.236.248.228"))
 				proxySTBCheck = true;
 			
 			for(int j = 0; j < stbs.length ; j++ ) {

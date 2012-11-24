@@ -18,10 +18,15 @@ import se.z_app.test_utils.HTTPRequestHandlerTestContainer;
 import se.z_app.test_utils.STBFactory;
 
 import junit.framework.TestCase;
+/**
+ * 
+ * @author Rasmus Holm
+ *
+ */
 
 public class RCCommandTest extends TestCase {
 
-	public int sleepTime = 200;
+	public int sleepTime = 2000;
 
 	ZmoteHTTPD httpd;
 	HTTPRequestHandlerTestContainer container;
