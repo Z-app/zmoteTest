@@ -32,15 +32,17 @@ public class ZChatAdapterTest extends AndroidTestCase{
 	}
 	
 	public void testGetFeed() {
-		/*
+		
 		Feed theFeed = new Feed(new Program(new Channel()));
 		ZChatAdapter theZAdapter = new ZChatAdapter();
 		EPG theEPG = EPGData.instance().getEPG();
 		ArrayList<Feed> theFeeds = new ArrayList<Feed>();
 		int counter = 0;
 		assertTrue(theEPG != null);
+		/*
 		Post aPost = new Post();
-		aPost.setContent(new String("more post!"));
+		
+		aPost.setContent(new String("This show is the best"));
 		aPost.setUserName("Marcus");
 		Channel theChannel = theEPG.iterator().next();
 		Program theProgram = theChannel.iterator().next();
@@ -48,11 +50,30 @@ public class ZChatAdapterTest extends AndroidTestCase{
 		Feed targetFeed = theZAdapter.commitPost(new Feed(theProgram), aPost);
 		
 		Comment aComment = new Comment(aPost);
-		aComment.setContent("lolz @ post");
+		aComment.setContent("ur stpuid");
 		aComment.setUserName("Linus");
 		
 		theZAdapter.commitComment(targetFeed, aPost, aComment);
 		*/
+		int count = 0;
+		for(Channel theChannel : theEPG){
+				
+			for(Program theProgram : theChannel) {
+				Feed serverFeed = theZAdapter.getFeed(theProgram);
+				if(serverFeed != null)
+				{
+					for(Post thePost : serverFeed)
+					{
+						//Comment aComment = new Comment(thePost);
+						//aComment.setContent("ur stpuid");
+						//aComment.setUserName("Linus");
+						//theZAdapter.commitComment(serverFeed, thePost, aComment);
+						if(thePost.iterator().hasNext()) count++;
+					}
+				}
+			}
+		}
+		Log.e("ZCHAT", "count: " + count);
 		//Feed serverFeed = theZAdapter.getFeed(theProgram);
 		//Comment aReturnedComment = serverFeed.iterator().next().iterator().next();
 		//for(Channel theChannel : theEPG) {
