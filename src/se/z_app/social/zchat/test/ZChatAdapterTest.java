@@ -55,6 +55,7 @@ public class ZChatAdapterTest extends AndroidTestCase{
 		
 		theZAdapter.commitComment(targetFeed, aPost, aComment);
 		*/
+		/*
 		int count = 0;
 		for(Channel theChannel : theEPG){
 				
@@ -74,6 +75,7 @@ public class ZChatAdapterTest extends AndroidTestCase{
 			}
 		}
 		Log.e("ZCHAT", "count: " + count);
+		*/
 		//Feed serverFeed = theZAdapter.getFeed(theProgram);
 		//Comment aReturnedComment = serverFeed.iterator().next().iterator().next();
 		//for(Channel theChannel : theEPG) {
