@@ -142,8 +142,8 @@ public class RCCommandTest extends TestCase {
 			
 			String returnedPost = (String)container.getParms().get("url");
 			
-			assertTrue(container.getMethod().equals("GET"));
-			assertTrue(returnedPost.equals(token));
+			assertEquals(container.getMethod(),"GET");
+			assertEquals(returnedPost, "webtv:" + token);
 		}
 	}
 
@@ -168,9 +168,9 @@ public class RCCommandTest extends TestCase {
 			String postUrl = (String)container.getParms().get("url");
 			String postQueue = (String)container.getParms().get("queue");
 			
-			assertTrue(container.getMethod().equals("GET"));
-			assertTrue(postUrl.equals(token));
-			assertTrue(postQueue.equals("1"));
+			assertEquals(container.getMethod(), "GET");
+			assertEquals(postUrl, "webtv:" + token);
+			assertEquals(postQueue, "1");
 		}
 	}
 
@@ -240,15 +240,16 @@ public class RCCommandTest extends TestCase {
 		for(int i = 0; i < 10; i++){
 			Random r = new Random();
 			String uri = "/"+Long.toString(Math.abs(r.nextLong()), 36);
-			
+			Log.v("URI String", uri);
 			container = new HTTPRequestHandlerTestContainer(uri);
 			httpd.addHandler(container);
 			
 			r = new Random();
 			String paramName = Long.toString(Math.abs(r.nextLong()), 36);
+			Log.v("ParamName String", paramName);
 			r = new Random();
 			String param = Long.toString(Math.abs(r.nextLong()), 36);
-			
+			Log.v("Param String", param);
 						
 			cmd.rawGet(uri+"?"+paramName+"="+param);
 			
